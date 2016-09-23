@@ -1,6 +1,6 @@
 {
   "name": "nano-pubsub",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tiny (<0.5 kb) publish/subscribe",
   "main": "index.js",
   "scripts": {
