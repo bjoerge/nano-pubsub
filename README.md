@@ -8,7 +8,7 @@ npm install nano-pubsub
 ```
 
 ## Usage example
-```
+```js
 var Pubsub = require('nano-pubsub')
 
 const events = Pubsub()
