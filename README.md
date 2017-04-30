@@ -17,15 +17,15 @@ const unsubscribe = events.subscribe(value => {
   console.log('got value:', value)
 })
 
-pubsub.publish('Hello')
+events.publish('Hello')
 // => 'got value: Hello'
 
-pubsub.publish('World')
+events.publish('World')
 // => 'got value: World'
 
 unsubscribe()
 
-pubsub.publish('Something')
+events.publish('Something')
 
 // ...nothing
 ```
