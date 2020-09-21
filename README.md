@@ -9,9 +9,9 @@ npm install nano-pubsub
 
 ## Usage example
 ```js
-const Pubsub = require('nano-pubsub')
+import createPubsub from 'nano-pubsub'
 
-const events = Pubsub()
+const events = createPubsub()
 
 const unsubscribe = events.subscribe(value => {
   console.log('got value:', value)
