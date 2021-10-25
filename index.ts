@@ -1,8 +1,3 @@
-function randomId(len = 8): string {
-  if (len <= 0) return ''
-  return Math.floor(Math.random() * 16).toString(16) + randomId(len - 1)
-}
-
 export interface Subscriber<Event> {
   (event: Event): void
 }
@@ -12,14 +7,14 @@ export interface PubSub<Message> {
 }
 
 export default function createPubSub<Message = void>(): PubSub<Message> {
-  const subscribers = new Map<string, Subscriber<Message>>()
+  const subscribers = new Map<unknown, Subscriber<Message>>()
 
   function subscribe(subscriber: Subscriber<Message>) {
-    const id = randomId()
-    subscribers.set(id, subscriber)
+    const symbol = Symbol('SubscriberSymbol')
+    subscribers.set(symbol, subscriber)
 
     return function unsubscribe() {
-      subscribers.delete(id)
+      subscribers.delete(symbol)
     }
   }
 
