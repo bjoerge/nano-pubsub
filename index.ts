@@ -7,16 +7,20 @@ export interface PubSub<Message> {
 }
 
 export default function createPubSub<Message = void>(): PubSub<Message> {
-  const subscribers: Subscriber<Message>[] = []
+  const subscribers: {[id: string]: Subscriber<Message>} = Object.create(null)
+  let nextId = 0
   function subscribe(subscriber: Subscriber<Message>) {
-    const idx = subscribers.push(subscriber) - 1
+    const id = nextId++
+    subscribers[id] = subscriber
     return function unsubscribe() {
-      subscribers.splice(idx, 1)
+      delete subscribers[id]
     }
   }
 
   function publish(event: Message) {
-    subscribers.forEach((subscriber) => subscriber(event))
+    for (const id in subscribers) {
+      subscribers[id](event)
+    }
   }
 
   return {
