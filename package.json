@@ -6,6 +6,7 @@
   "types": "dist/cjs/index.d.ts",
   "module": "dist/esm/index.js",
   "es2015": "dist/es2015/index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "npm run build:es2015 && npm run build:esm && npm run build:cjs",
     "build:es2015": "tsc index.ts --declaration --module es2015 --target es2015 --outDir dist/es2015",
