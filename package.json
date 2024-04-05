@@ -1,6 +1,6 @@
 {
   "name": "nano-pubsub",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Zero dependency, tiny (<0.5 kb) publish/subscribe",
   "sideEffects": false,
   "type": "module",
@@ -27,7 +27,6 @@
     "test": "tap run && pkg-utils --strict",
     "prepublishOnly": "npm run build"
   },
-
   "keywords": [
     "pubsub",
     "events",
