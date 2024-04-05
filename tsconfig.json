@@ -1,7 +1,40 @@
 {
-  "include": ["./*.ts"],
+  "include": ["./src", "test.ts"],
   "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./dist",
+
+    "lib": ["dom", "es2020", "ES2022.Error"],
+    "allowImportingTsExtensions": true,
+    // Output settings
+    "target": "ESNext",
+    "module": "Preserve",
+    "moduleDetection": "force",
+    "allowSyntheticDefaultImports": true,
+
+    // Don't emit anything by default, emit is done by `@sanity/pkg-utils` during build
+    "noEmit": true,
+
+    // Settings
+    "preserveConstEnums": true,
+    "useUnknownInCatchVariables": false,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Strict type-checking
     "strict": true,
-    "declaration": true
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    // "strictFunctionTypes": true,
+    // "strictPropertyInitialization": true,
+    // "noImplicitThis": true,
+    // "alwaysStrict": true,
+
+    // Additional checks
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noImplicitReturns": true,
+    // "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true
   }
 }

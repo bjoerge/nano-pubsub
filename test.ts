@@ -1,5 +1,5 @@
 import {test} from 'tap'
-import PubSub from './index'
+import PubSub from './src/index.ts'
 
 test('it receives messages', (t) => {
   const events = PubSub<string>()

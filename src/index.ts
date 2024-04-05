@@ -1,11 +1,20 @@
+/**
+ * @public
+ */
 export interface Subscriber<Event> {
   (event: Event): void
 }
+/**
+ * @public
+ */
 export interface PubSub<Message> {
   publish: (message: Message) => void
   subscribe: (subscriber: Subscriber<Message>) => () => void
 }
 
+/**
+ * @public
+ */
 export default function createPubSub<Message = void>(): PubSub<Message> {
   const subscribers: {[id: string]: Subscriber<Message>} = Object.create(null)
   let nextId = 0
